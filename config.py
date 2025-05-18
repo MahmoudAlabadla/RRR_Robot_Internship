@@ -3,12 +3,12 @@ import math
 
 # General settings
 
-# Define L (sine-wave and robot links)
-L = 1.5  # represents L and Links length
+# Define L (sine-wave and robot links) can be set to a random number (try changing to see impact on simulation)
+L = 2.5  # represents L and Links length
 
 
 # For Task A
-TASK = 'B'  # or 'B'
+TASK = 'A'  # or 'B'
 
 if TASK == 'A':
     f = 30  # Target position frequency 30Hz
@@ -20,7 +20,7 @@ elif TASK == 'B':
     CONTROL_LOOP_HZ = 50
 
 # Additional Tasks
-ENABLE_RESTRICTED_AREA = True  # False for Task A, True for Task B
+ENABLE_RESTRICTED_AREA = False  # False for Task A, True for Task B
 
 # Toggle for enabling/disabling joint angle restriction
 ENABLE_JOINT_LIMITS = True     # Additional features
@@ -32,10 +32,10 @@ RESTRICTED_AREA_RADIUS = L / 8
 #Define End_effector Offset
 EE_offset = [0.2, 0, 0] # along the x-axis
 
-# Joint angle limits: (min, max) for each joint in radians
+# Joint angle limits: (min, max) for each joint in degrees, adjust to see impact on simulation
 JOINT_LIMITS = [
-    (-math.radians(100), math.radians(100)),   # Joint 1 (base) – slightly more than ±90°
-    (-math.radians(90), math.radians(90)),   # Joint 2 – more flexible
-    (-math.radians(150), math.radians(150)),   # Joint 3 – even more flexible
+    (-math.radians(10), math.radians(10)),   # Joint 1 (base) – slightly more than ±90°
+    (-math.radians(15), math.radians(15)),   # Joint 2 – more flexible
+    (-math.radians(5), math.radians(5)),   # Joint 3 – even more flexible
 ]
 

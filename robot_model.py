@@ -39,16 +39,20 @@ def get_joint_angles (target_pose):
 
     # for a 2d planar robot, z = 0
     try:
-        robot.ee = [x, y, 0.0]      #Inverse Kinematics
+        robot.ee = [x, y, 0.0]      #Inverse Kinematics      # library expects 3D plane, hence z value
         angles = robot.angles
     
         if config.ENABLE_JOINT_LIMITS:
          angles = clamp_angles(angles)
 
-        return angles
-    # library expects 3D plane, hence z value
+        return angles # clamped angles are returned to be used and not the original IK angles
+
 
     except ValueError as e:
        print(f"Target {target_pose} is unreachable: {e}" )
        return None
     
+
+
+
+

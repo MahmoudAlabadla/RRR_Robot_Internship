@@ -1,5 +1,17 @@
 This project simulates a 3-DOF planar RRR robot that tracks a moving 2D target in real-time using inverse kinematics. The system supports configurable tasks, obstacle zone, and joint limits, all visualized using matplotlib. Designed with a modular layered architecture to ensure clarity, flexibility, and extensibility.
 
+Observations between Task A, Task B, restricted area, and joint limits
+
+In Task A, the target (marked as a green star) jumps around really fast—30 times a second—so the robot has to keep up with quick movements.
+
+In Task B, both the target and the robot update slower, making the whole simulation feel smoother and less jumpy.
+
+Adding the restricted circular area shows up nicely as a red circle on the screen. The target moves freely inside it, but the robot’s end-effector doesn’t go inside—it stays right on the edge.
+
+Turning on joint limits can affect whether the robot can actually reach the target. When the limits are set realistically, everything works fine. But if the limits are too tight (like only ±50 degrees), the robot might not be able to get to some spots.
+
+
+
 Documentation:
 
 1-  Instruction for recreating project simulation:
@@ -32,6 +44,8 @@ Documentation:
             ENABLE_RESTRICTED_AREA = True
 
             ENABLE_JOINT_LIMITS = True 
+
+            adjust JOINT_LIMITS to see effect on simulation
 
     E) run the follwoing commad in your terminal 
             
