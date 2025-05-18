@@ -1,6 +1,4 @@
-# robot_model.py
-#Using the tinyik library for robot desgin and kinematics
-import tinyik
+import tinyik #Using the tinyik library for robot desgin and kinematics
 import numpy as np
 import config
 from config import EE_offset
@@ -18,11 +16,21 @@ robot = tinyik.Actuator([
 ])
 
 def clamp_angles(angles):
+    """
+    Clamp each joint angle within its predefined limits.
+
+    Parameters:
+    angles (list or iterable): List of joint angles (in radians) to be clamped.
+
+    Returns:
+    list: A list of clamped joint angles, where each angle is restricted 
+          between its corresponding min and max limits defined in config.JOINT_LIMITS.
+    """
     clamped = []
     for angle, (min_limit, max_limit) in zip(angles, config.JOINT_LIMITS):
+        # Clamp the angle so it does not go below min_limit or above max_limit
         clamped.append(max(min(angle, max_limit), min_limit))
     return clamped
-
 
 #Function to return the inverse kinematics given updated x, y coordinates of the target 
 def get_joint_angles (target_pose):
