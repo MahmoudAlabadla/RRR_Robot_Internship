@@ -7,7 +7,7 @@ Documentation:
     A)  Clone the Repository
         Clone this repository from your lab code remote:
 
-        git clone "https://your-labcode-url/labcode-repo.git"
+        git clone "https://github.com/MahmoudAlabadla/RRR_Robot_Internship.git
         cd "labcode-repo"
 
     B)  Create and activate a virtual environment (optional but recommended)
